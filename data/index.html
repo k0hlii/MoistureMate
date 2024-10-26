@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Settings</h1>
+    <p>My name is <strong>John Doe</strong> and I am a web developer.</p>
+    <form action="/submit" method="post">
+      <h2>Network</h2>
+      <label for="name">SSID:</label>
+      <input type="text" name="ssid" id="ssid" />
+      <label for="name">Password:</label>
+      <input type="password" name="password" id="password" />
+
+      <h2>NTFY</h2>
+      <label for="name">Server URL:</label>
+      <input type="text" name="url" id="url" />
+      <label for="name">Topic:</label>
+      <input type="text" name="topic" id="topic" />
+
+      <h2>Sensor</h2>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" />
+      <label for="name">Custom threshold:</label>
+      <input type="text" name="ct" id="ct" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
