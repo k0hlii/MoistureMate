@@ -3,8 +3,6 @@
 #include <WiFi.h>
 #include <wizard.h>
 
-const char *ssid = "MoistureMate";
-const char *password = "123456789";
 ConfigManager configManager;
 SetupWizard wizard(configManager);
 
