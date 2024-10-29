@@ -2,7 +2,16 @@
 
 ConfigManager::ConfigManager()
 {
-    // Initialize member variables if needed
+    // Initialize SPIFFS
+    if (!SPIFFS.begin(true))
+    {
+        Serial.println("An Error has occurred while mounting SPIFFS");
+        return;
+    }
+    else
+    {
+        Serial.println("SPIFFS mounted successfully");
+    }
 }
 
 bool ConfigManager::loadConfig()
@@ -68,18 +77,21 @@ bool ConfigManager::saveConfig()
     return true;
 }
 
-bool ConfigManager::parseLine(const String& line, const String& key, String& value) {
+bool ConfigManager::parseLine(const String &line, const String &key, String &value)
+{
     int startIndex = line.indexOf(key);
-    if (startIndex == -1) {
+    if (startIndex == -1)
+    {
         return false;
     }
-    startIndex += key.length();  // Move past the key to the start of the value
+    startIndex += key.length(); // Move past the key to the start of the value
     int endIndex = line.indexOf(';', startIndex);
-    if (endIndex == -1) {
+    if (endIndex == -1)
+    {
         return false;
     }
     value = line.substring(startIndex, endIndex); // Extract the substring
-    value.trim(); // Trim whitespace in place
+    value.trim();                                 // Trim whitespace in place
     return true;
 }
 
@@ -92,9 +104,9 @@ String ConfigManager::getName() const { return name; }
 String ConfigManager::getCT() const { return ct; }
 
 // Setters
-void ConfigManager::setSSID(const String& ssid) { this->ssid = ssid; }
-void ConfigManager::setPassword(const String& password) { this->password = password; }
-void ConfigManager::setURL(const String& url) { this->url = url; }
-void ConfigManager::setTopic(const String& topic) { this->topic = topic; }
-void ConfigManager::setName(const String& name) { this->name = name; }
-void ConfigManager::setCT(const String& ct) { this->ct = ct; }
+void ConfigManager::setSSID(const String &ssid) { this->ssid = ssid; }
+void ConfigManager::setPassword(const String &password) { this->password = password; }
+void ConfigManager::setURL(const String &url) { this->url = url; }
+void ConfigManager::setTopic(const String &topic) { this->topic = topic; }
+void ConfigManager::setName(const String &name) { this->name = name; }
+void ConfigManager::setCT(const String &ct) { this->ct = ct; }
