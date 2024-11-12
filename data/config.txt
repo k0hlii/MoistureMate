@@ -1,6 +1,6 @@
-SSID: A1-Mesh-WLAN-d6f80;
-PW: 95299536075814863937;
-URL: ;
-Topic: ;
-NAME: ;
+SSID: BULME-LS517;
+PW: BULME-LS517;
+URL: ntfy.sh/;
+Topic: thomastesttopic;
+NAME: [Pflantenname];
 CT: ;

@@ -2,6 +2,7 @@
 
 ConfigManager::ConfigManager()
 {
+    Serial.begin(115200);
     // Initialize SPIFFS
     if (!SPIFFS.begin(true))
     {
@@ -26,6 +27,7 @@ bool ConfigManager::loadConfig()
     while (file.available())
     {
         String line = file.readStringUntil('\n');
+        Serial.println("line: " + line);
         line.trim();
         if (line.startsWith("SSID:"))
         {
@@ -91,7 +93,7 @@ bool ConfigManager::parseLine(const String &line, const String &key, String &val
         return false;
     }
     value = line.substring(startIndex, endIndex); // Extract the substring
-    value.trim();                                 // Trim whitespace in place
+    value.trim();
     return true;
 }
 

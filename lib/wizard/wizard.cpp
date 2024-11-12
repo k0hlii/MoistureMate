@@ -45,7 +45,7 @@ void SetupWizard::setup()
 
     // Handle data received from the client
     server.on("/submit", HTTP_POST, [this](AsyncWebServerRequest *request)
-              {
+    {
     String ssid, password, url, topic, name, ct;
     if (request->hasParam("ssid", true) && request->hasParam("password", true) &&
         request->hasParam("url", true) && request->hasParam("topic", true) &&
